@@ -107,8 +107,7 @@ class SimCamera:
     def visible(self, polarpos):
         if polarpos is None:
             return False
-        
-        return self.distance_range[0] <= polarpos <=self.distance_range[1]
+        return self.distance_range[0] <= polarpos <= self.distance_range[1]
 
 
     def data(self, cam_pose):
@@ -130,14 +129,14 @@ class SimCamera:
 
     @classmethod
     def observation_function(cls, cam_pose, obj_pos):
-        distance = abs(obj_pos - cam_pose)
+        distance = obj_pos - cam_pose
         return distance
 
 if __name__ == '__main__':
-    world = World(10, 0.1) # (シミュレート時間[s], Δt[s])
+    world = World(30, 0.1) # (シミュレート時間[s], Δt[s])
 
     m = Map()
-    m.append_landmark(Landmark(3))
+    m.append_landmark(Landmark(2))
     world.append(m)
 
     straight = Agent(0.2)
