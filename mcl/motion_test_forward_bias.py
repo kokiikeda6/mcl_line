@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-sys.path.append('./scripts/')
+sys.path.append('../scripts/')
 from uncertain_robot import*
 import math
 
@@ -17,8 +17,5 @@ for i in range(100):
 
 world.draw()
 
-import pandas as pd
-poses = pd.DataFrame([[math.sqrt(r.pose**2)] for r in robots], columns=['r'])
-poses.transpose()
-
-print(math.sqrt(poses["r"].var()/poses["r"].mean()))
+poses = [abs(r.pose) for r in robots]
+print(math.sqrt(np.var(poses)/np.mean(poses)))

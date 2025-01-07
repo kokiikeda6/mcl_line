@@ -57,7 +57,7 @@ class Robot(SimRobot):
         self.pose = self.kidnap(self.pose, time_interval)
 
 class Camera(SimCamera):
-    def __init__(self, env_map, distance_range=(0.5, 4.0), \
+    def __init__(self, env_map, distance_range=(0.5, 3.0), \
                  distance_noise_rate=0.1, distance_bias_rate_stddev=0.1, \
                  phantom_prob=0.0, phantom_range_x=(-5.0, 5.0), \
                  oversight_prob=0.1, occlusion_prob=0.0):
