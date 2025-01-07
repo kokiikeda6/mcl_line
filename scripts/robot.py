@@ -2,10 +2,10 @@
 
 import sys
 sys.path.append('../scripts/')
-from sim_robot import*
+from ideal_robot import*
 from scipy.stats import expon, norm, uniform
 
-class Robot(SimRobot):
+class Robot(IdealRobot):
     def __init__(self, pose, agent=None, sensor=None, color="black", \
                  bias_rate_stds=0.1, \
                  expected_stack_time=1e100, expected_escape_time=1e-100, \
@@ -56,7 +56,7 @@ class Robot(SimRobot):
         self.pose = self.state_transition(nu, time_interval, self.pose)
         self.pose = self.kidnap(self.pose, time_interval)
 
-class Camera(SimCamera):
+class Camera(IdealCamera):
     def __init__(self, env_map, distance_range=(0.5, 3.0), \
                  distance_noise_rate=0.1, distance_bias_rate_stddev=0.1, \
                  phantom_prob=0.0, phantom_range_x=(-5.0, 5.0), \

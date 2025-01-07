@@ -39,7 +39,7 @@ class World:
             obj.draw(ax, elems)
             if hasattr(obj, "one_step"): obj.one_step(self.time_inrterval)
 
-class SimRobot:
+class IdealRobot:
     def __init__(self, pose, agent=None, sensor=None, color="black"):
         self.pose = pose
         self.r = 0.2
@@ -99,7 +99,7 @@ class Map:
     def draw(self, ax, elems):
         for lm in self.landmarks: lm.draw(ax, elems)
 
-class SimCamera:
+class IdealCamera:
     def __init__(self, env_map, distance_range=(0.5, 4.0)):
         self.map = env_map
         self.lastdata = []
@@ -141,7 +141,7 @@ if __name__ == '__main__':
     world.append(m)
 
     straight = Agent(0.2)
-    robot1 = SimRobot(-2, sensor=SimCamera(m), agent=straight)
+    robot1 = IdealRobot(-2, sensor=IdealCamera(m), agent=straight)
     world.append(robot1)
 
     world.draw()

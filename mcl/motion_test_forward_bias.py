@@ -2,7 +2,7 @@
 
 import sys
 sys.path.append('../scripts/')
-from uncertain_robot import*
+from robot import*
 import math
 
 world = World(40.0, 0.1)

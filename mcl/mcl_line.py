@@ -2,7 +2,7 @@
 
 import sys
 sys.path.append('../scripts/')
-from uncertain_robot import*
+from robot import*
 from scipy.stats import multivariate_normal
 import math
 import random
@@ -16,7 +16,7 @@ class Particle:
     def motion_update(self, nu, time, noise_rate_pdf):
         ns = noise_rate_pdf.rvs()
         noised_nu = nu + ns*math.sqrt(abs(nu)/time)
-        self.pose = SimRobot.state_transition(noised_nu, time, self.pose)
+        self.pose = IdealRobot.state_transition(noised_nu, time, self.pose)
 
     def observation_update(self, observation, envmap, distance_dev_rate):
         for d in observation:
@@ -24,7 +24,7 @@ class Particle:
             obs_id = d[1]
 
             pos_on_map = envmap.landmarks[obs_id].pos
-            particle_suggest_pos = SimCamera.observation_function(self.pose, pos_on_map)
+            particle_suggest_pos = IdealCamera.observation_function(self.pose, pos_on_map)
 
             distance_dev = distance_dev_rate*particle_suggest_pos
             cov = distance_dev**2
