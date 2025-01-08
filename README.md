@@ -18,6 +18,16 @@ git clone https://github.com/kokiikeda6/mcl_line.git
 cd mcl
 ./mcl_line.py
 ```
+## パラメータ
+|パラメータ名|説明|
+|:---|:---|
+|time_span|シミュレート時間 [s]|
+|time_interval|時間間隔 [s]|
+|num_particles|パーティクルの数|
+|initial_pose|ロボットの初期位置(x座標)|
+|velocity|ロボットの並進速度 [m/s]|
+|nn|直進1[m]で生じる道のりのばらつきの標準偏差|
+
 ## 動作確認済み環境
 * Python 3.8.10
 * Ubuntu 20.04
