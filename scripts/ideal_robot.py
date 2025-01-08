@@ -21,6 +21,8 @@ class World:
         ax.set_aspect('equal')
         ax.set_xlim(-5, 5)
         ax.set_ylim(-5, 5)
+        ax.set_xlabel("X", fontsize=20)
+        ax.set_ylabel("Y", fontsize=20)
         ax.plot([-5, 5], [0, 0], linestyle="--", alpha=0.5)
 
         elems = []
