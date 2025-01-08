@@ -3,6 +3,7 @@
 1次元の数直線上を動くロボットにmclを実装したものになります.
 
 ## 実行例
+[mcl_line.py](https://github.com/kokiikeda6/mcl_line/blob/main/mcl/mcl_line.py)を実行すると以下のような画面が現れ, ロボットが右向きに動き始めます. \
 ロボットが動くと数直線上にパーティクルが広がり, ランドマークを観測すると狭まります. \
 (赤色の円: ロボット, 青色の矢印: パーティクル, 黄色の星: ランドマーク)
 <img src="resource/mcl_demo.gif">
