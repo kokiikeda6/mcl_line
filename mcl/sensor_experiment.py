@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-sys.path.append('..e/scripts/')
+sys.path.append('../scripts/')
 from robot import*
 
 m = Map()

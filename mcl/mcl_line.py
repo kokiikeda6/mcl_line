@@ -31,7 +31,7 @@ class Particle:
             self.weight *= multivariate_normal(mean=particle_suggest_pos, cov=cov).pdf(obs_pos)
 
 class Mcl:
-    def __init__(self, envmap, init_pose, num, motion_noise_stds={"nn":0.19}, distance_dev_rate=0.14):
+    def __init__(self, envmap, init_pose, num, motion_noise_stds={"nn":0.18}, distance_dev_rate=0.14):
         self.particles = [Particle(init_pose, 1.0/num) for i in range(num)]
         self.map = envmap
         self.distance_dev_rate = distance_dev_rate
@@ -89,12 +89,13 @@ class EstimationAgent(Agent):
         self.estimator.draw(ax, elems)
 
 def trial():
+    time_span = 40      #シミュレート時間 [s]
     time_interval = 0.1 # 時間間隔 [s]
     num_particles = 100 # パーティクルの数
-    initial_pose = -4   # 初期のx座標
+    initial_pose = -3   # 初期のx座標
     velocity = 0.2      # ロボットの速度
 
-    world = World(40, time_interval, debug=False)
+    world = World(time_span, time_interval, debug=False)
 
     m = Map()
     m.append_landmark(Landmark(3))
